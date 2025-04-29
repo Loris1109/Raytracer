@@ -33,11 +33,11 @@ public class MeinHyperRaytracer {
         Vector3D pos = camera.getC()
                 .Add(camera.getV().Multiply(camera.distanceToView)) // move forward
                 .Sub(camera.getR().Multiply(camera.viewWidth / 2.0f)) // left half screen
-                .Add(camera.getU().Multiply(camera.viewHight / 2.0f)); // top half screen
+                .Add(camera.getU().Multiply(camera.viewHeight / 2.0f)); // top half screen
 
         List<SceneObject> scene = new ArrayList<>();
         Sphere sphere1 = new Sphere(new Vector3D(0,2,6),1f,new Vector3D(255,0,0));
-        Sphere sphere2 = new Sphere(new Vector3D(0,0,5),1f,new Vector3D(0,255,0));
+        Sphere sphere2 = new Sphere(new Vector3D(0,0,5),1.5f,new Vector3D(0,255,0));
         Sphere sphere3 = new Sphere(new Vector3D(2,0,5),1f,new Vector3D(0,0,255));
         scene.add(sphere1);
         scene.add(sphere2);
@@ -52,7 +52,7 @@ public class MeinHyperRaytracer {
 
                 Vector3D pixelPos3D = pos
                         .Add(camera.getR().Multiply((x + 0.5f) * (camera.viewWidth / resX)))
-                        .Sub(camera.getU().Multiply((y + 0.5f) * (camera.viewHight / resY)));
+                        .Sub(camera.getU().Multiply((y + 0.5f) * (camera.viewHeight / resY)));
                 //cameraPos + Abstand * Blickrichtung - R * width /2 -U * height/2 + x * R * width/resX
 
                 Vector3D rayDir = pixelPos3D.Sub(camera.getC()).Normalize();

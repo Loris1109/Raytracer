@@ -6,7 +6,7 @@ public class Camera {
 
     public final float distanceToView = 1;
     public final float viewWidth = 4;
-    public final float viewHight = 3;
+    public final float viewHeight = 3;
 
     public Camera(){
         this.c = new Vector3D(0,0,0);
